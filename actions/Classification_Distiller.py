@@ -1,5 +1,7 @@
 # Reference: https://keras.io/examples/vision/knowledge_distillation/
+import tensorflow as tf
 import keras
+
 class Distiller(keras.Model):
     def __init__(self, student, teacher):
         super(Distiller, self).__init__()

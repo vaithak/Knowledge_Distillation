@@ -1,3 +1,5 @@
+from matplotlib import pyplot as plt
+
 def plotModel(history): 
   fig, axs = plt.subplots(1,2,figsize=(16,5)) 
   # summarize history for accuracy

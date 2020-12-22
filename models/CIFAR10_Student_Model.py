@@ -1,8 +1,11 @@
-def createStudentModel(name = "Student Model"):
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Dense, Dropout, Flatten, BatchNormalization
+from tensorflow.keras.models import Sequential
+
+def createStudentModel(name = "Student-Model"):
     model = Sequential(name=name)
 
     model.add(Conv2D(32, (3, 3), activation='relu', kernel_initializer='he_uniform', padding='same', input_shape=(32, 32, 3)))
-    teacher.add(BatchNormalization())
+    model.add(BatchNormalization())
     model.add(Conv2D(32, (3, 3), activation='relu', kernel_initializer='he_uniform', padding='same'))
     model.add(BatchNormalization())
     model.add(MaxPooling2D((2, 2)))
@@ -27,11 +30,5 @@ def createStudentModel(name = "Student Model"):
     model.add(BatchNormalization())
     model.add(Dropout(0.4))
     model.add(Dense(10))   # activation = None is important, as we will use logits for calculating softened probabilities
-
-    model.compile(
-        optimizer=Adam(),
-        loss=SparseCategoricalCrossentropy(from_logits=True),
-        metrics=[SparseCategoricalAccuracy()],
-    )
 
     return model

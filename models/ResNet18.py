@@ -77,6 +77,6 @@ def ResNet18(classes, input_shape, weight_decay=1e-4):
     x = ResidualBlock(x, filters=512, kernel_size=(3, 3), weight_decay=weight_decay, downsample=False)
     x = AveragePooling2D(pool_size=(4, 4), padding='valid')(x)
     x = Flatten()(x)
-    x = Dense(classes, activation='softmax')(x)
+    x = Dense(classes, activation=None)(x)
     model = Model(input, x, name='ResNet18')
     return model
